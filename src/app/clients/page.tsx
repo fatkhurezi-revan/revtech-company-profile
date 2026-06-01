@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { InfiniteMarquee } from "@/components/InfiniteMarquee";
 import { Quote } from "lucide-react";
 
 export default function Clients() {
@@ -44,15 +45,16 @@ export default function Clients() {
               <h2 className="font-heading text-3xl font-bold text-navy">Dipercaya oleh Perusahaan Terkemuka</h2>
             </div>
           </RevealOnScroll>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Placeholder for client logos */}
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-              <RevealOnScroll key={num} delay={num * 0.05}>
-                <div className="w-32 h-16 bg-gray-200 animate-pulse rounded flex items-center justify-center text-gray-400 text-xs font-bold uppercase tracking-widest">
-                  LOGO {num}
-                </div>
-              </RevealOnScroll>
-            ))}
+          <div className="w-full">
+            <InfiniteMarquee speed={30}>
+              <div className="flex gap-16 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500 pr-16">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                  <div key={num} className="w-40 h-20 bg-gray-200 rounded flex items-center justify-center text-gray-400 text-sm font-bold uppercase tracking-widest shrink-0 hover:bg-gold hover:text-white transition-colors duration-300">
+                    LOGO {num}
+                  </div>
+                ))}
+              </div>
+            </InfiniteMarquee>
           </div>
         </div>
       </section>

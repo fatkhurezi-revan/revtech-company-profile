@@ -1,6 +1,7 @@
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { Factory, Building2, Briefcase, Ruler, Zap, ShieldAlert } from "lucide-react";
-import { Button } from "@/components/Button";
+import { MagneticButton } from "@/components/MagneticButton";
+import { TiltCard } from "@/components/TiltCard";
 
 export default function Services() {
   const services = [
@@ -56,20 +57,22 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="bg-white p-10 border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300 group h-full flex flex-col">
-                  <div className="w-16 h-16 bg-navy/5 text-navy group-hover:bg-gold group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-8">
-                    <service.icon className="w-8 h-8" />
+                <TiltCard className="h-full relative group">
+                  <div className="bg-white p-10 border border-gray-100 group-hover:border-gold group-hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)] transition-all duration-300 h-full flex flex-col relative z-10" style={{ transform: "translateZ(30px)" }}>
+                    <div className="w-16 h-16 bg-navy/5 text-navy group-hover:bg-gold group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-8 transform group-hover:scale-110">
+                      <service.icon className="w-8 h-8" />
+                    </div>
+                    <h3 className="font-heading text-2xl font-bold text-navy mb-4">{service.title}</h3>
+                    <p className="text-gray-600 flex-grow leading-relaxed mb-6">
+                      {service.desc}
+                    </p>
+                    <div className="mt-auto">
+                      <span className="text-gold font-semibold uppercase tracking-wider text-sm flex items-center group-hover:underline">
+                        Pelajari Detail 
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-navy mb-4">{service.title}</h3>
-                  <p className="text-gray-600 flex-grow leading-relaxed mb-6">
-                    {service.desc}
-                  </p>
-                  <div className="mt-auto">
-                    <span className="text-gold font-semibold uppercase tracking-wider text-sm flex items-center group-hover:underline">
-                      Pelajari Detail 
-                    </span>
-                  </div>
-                </div>
+                </TiltCard>
               </RevealOnScroll>
             ))}
           </div>
@@ -84,9 +87,9 @@ export default function Services() {
             <p className="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
               Kami menyadari setiap bisnis memiliki tantangan unik. Hubungi tim ahli kami untuk mendiskusikan rancangan solusi yang dibuat khusus untuk operasional Anda.
             </p>
-            <Button href="https://wa.me/1234567890" variant="secondary" className="px-10 py-4 text-lg">
+            <MagneticButton href="https://wa.me/1234567890" variant="secondary" className="px-10 py-4 text-lg">
               Konsultasi Gratis
-            </Button>
+            </MagneticButton>
           </RevealOnScroll>
         </div>
       </section>

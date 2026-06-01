@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { TiltCard } from "@/components/TiltCard";
 
 export default function Gallery() {
   const images = [
@@ -31,7 +32,7 @@ export default function Gallery() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {images.map((img, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="group relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer">
+                <TiltCard className="group relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer">
                   <Image 
                     src={img.src} 
                     alt={img.title} 
@@ -44,7 +45,7 @@ export default function Gallery() {
                       <div className="w-12 h-1 bg-gold mt-3 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100"></div>
                     </div>
                   </div>
-                </div>
+                </TiltCard>
               </RevealOnScroll>
             ))}
           </div>

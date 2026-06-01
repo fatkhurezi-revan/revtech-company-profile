@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Button } from "@/components/Button";
+import { MagneticButton } from "@/components/MagneticButton";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { NumberCounter } from "@/components/NumberCounter";
 import { ArrowRight, Building2, ShieldCheck, Factory, Briefcase } from "lucide-react";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative bg-navy text-white py-32 md:py-48 overflow-hidden">
         {/* Subtle background pattern/overlay could go here */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center bg-fixed opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <RevealOnScroll>
             <div className="max-w-4xl">
@@ -20,12 +21,12 @@ export default function Home() {
                 Kami adalah mitra strategis untuk perusahaan manufaktur dan kontraktor skala besar, menghadirkan solusi inovatif dan efisiensi tanpa kompromi.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/services" variant="primary" className="bg-gold text-navy hover:bg-gold-light">
+                <MagneticButton href="/services" variant="primary" className="bg-gold text-navy hover:bg-gold-light">
                   Eksplorasi Layanan <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button href="/about" variant="outline" className="border-gray-500 text-gray-300 hover:bg-white hover:text-navy hover:border-white">
+                </MagneticButton>
+                <MagneticButton href="/about" variant="outline" className="border-gray-500 text-gray-300 hover:bg-white hover:text-navy hover:border-white">
                   Pelajari Lebih Lanjut
-                </Button>
+                </MagneticButton>
               </div>
             </div>
           </RevealOnScroll>
@@ -66,7 +67,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button href="/about" variant="outline">Profil Lengkap</Button>
+                <MagneticButton href="/about" variant="outline">Profil Lengkap</MagneticButton>
               </div>
             </RevealOnScroll>
           </div>
@@ -109,14 +110,16 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "25+", label: "Tahun Pengalaman" },
-              { value: "150+", label: "Proyek Selesai" },
-              { value: "500+", label: "Karyawan Ahli" },
-              { value: "50+", label: "Penghargaan" }
+              { end: 25, label: "Tahun Pengalaman", suffix: "+" },
+              { end: 150, label: "Proyek Selesai", suffix: "+" },
+              { end: 500, label: "Karyawan Ahli", suffix: "+" },
+              { end: 50, label: "Penghargaan", suffix: "+" }
             ].map((stat, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
                 <div>
-                  <div className="font-heading text-5xl font-bold text-gold mb-2">{stat.value}</div>
+                  <div className="font-heading text-5xl font-bold text-gold mb-2">
+                    <NumberCounter end={stat.end} suffix={stat.suffix} />
+                  </div>
                   <div className="text-gray-300 font-medium uppercase tracking-wider text-sm">{stat.label}</div>
                 </div>
               </RevealOnScroll>
@@ -134,9 +137,9 @@ export default function Home() {
               <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
                 Konsultasikan kebutuhan proyek Anda dengan tim ahli kami. Kami siap memberikan solusi terbaik yang disesuaikan dengan skala dan tujuan bisnis Anda.
               </p>
-              <Button href="https://wa.me/1234567890" variant="primary" className="text-lg px-8 py-4">
+              <MagneticButton href="https://wa.me/1234567890" variant="primary" className="text-lg px-8 py-4">
                 Hubungi Kami Sekarang
-              </Button>
+              </MagneticButton>
             </div>
           </RevealOnScroll>
         </div>
