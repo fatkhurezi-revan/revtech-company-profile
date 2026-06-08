@@ -5,9 +5,14 @@ export function Footer() {
     <footer className="bg-navy text-white pt-16 pb-8 border-t border-navy-light">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
-          <div className="flex flex-col mb-4">
-            <span className="font-heading text-2xl font-bold text-white tracking-tight">RevTech</span>
-            <span className="text-[10px] uppercase tracking-widest text-gold font-semibold">Template Company Profile</span>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-gold to-gold-light text-navy flex items-center justify-center font-bold text-xl md:text-2xl shadow-lg shadow-gold/20">
+              R
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-heading text-xl md:text-2xl font-bold text-white tracking-tight leading-none mb-1.5">RevTech</span>
+              <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold leading-none">Template Company Profile</span>
+            </div>
           </div>
           <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
             Menghadirkan solusi web premium untuk bisnis yang mendambakan citra profesional dan kredibilitas tinggi di era digital.
