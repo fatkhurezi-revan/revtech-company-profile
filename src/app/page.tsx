@@ -6,7 +6,7 @@ import { ArrowRight, Building2, ShieldCheck, Factory, Briefcase } from "lucide-r
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen">
       {/* HERO SECTION */}
       <section className="relative bg-navy text-white py-32 md:py-48 overflow-hidden">
         {/* Subtle background pattern/overlay could go here */}
@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT SNIPPET SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white" aria-labelledby="about-heading">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <RevealOnScroll>
@@ -50,11 +50,11 @@ export default function Home() {
             <RevealOnScroll delay={0.2}>
               <div>
                 <span className="text-gold font-bold tracking-wider uppercase text-sm mb-4 block">Tentang Perusahaan</span>
-                <h2 className="font-heading text-4xl md:text-5xl font-bold text-navy mb-6">Integritas dalam Setiap Langkah.</h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <h2 id="about-heading" className="font-heading text-4xl md:text-5xl font-bold text-navy mb-6">Integritas dalam Setiap Langkah.</h2>
+                <p className="text-slate-600 mb-6 leading-relaxed">
                   Dengan pengalaman lebih dari dua dekade, kami telah membuktikan diri sebagai pemimpin industri dalam menyediakan layanan konstruksi dan manufaktur berkualitas tinggi. Dedikasi kami terhadap standar tertinggi memastikan setiap proyek selesai dengan sempurna.
                 </p>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-8" aria-label="Keunggulan Perusahaan">
                   {[
                     "Standar kualitas internasional (ISO 9001)",
                     "Tim profesional dan berpengalaman",
@@ -75,13 +75,13 @@ export default function Home() {
       </section>
 
       {/* CORE SERVICES SECTION */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50" aria-labelledby="services-heading">
         <div className="container mx-auto px-4">
           <RevealOnScroll>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-gold font-bold tracking-wider uppercase text-sm mb-4 block">Layanan Utama</span>
-              <h2 className="font-heading text-4xl font-bold text-navy mb-6">Solusi Komprehensif untuk Industri Anda</h2>
-              <p className="text-gray-600">Pendekatan terpadu kami memastikan bahwa setiap tantangan operasional Anda tertangani dengan ahli.</p>
+              <h2 id="services-heading" className="font-heading text-4xl font-bold text-navy mb-6">Solusi Komprehensif untuk Industri Anda</h2>
+              <p className="text-slate-600">Pendekatan terpadu kami memastikan bahwa setiap tantangan operasional Anda tertangani dengan ahli.</p>
             </div>
           </RevealOnScroll>
           
@@ -92,13 +92,13 @@ export default function Home() {
               { title: "Konsultasi Hukum", icon: Briefcase, desc: "Layanan penasihat hukum korporat dan penyelesaian sengketa konstruksi." }
             ].map((service, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="bg-white p-8 border border-gray-100 hover:border-gold transition-colors duration-300 group h-full">
-                  <div className="w-14 h-14 bg-navy/5 text-navy group-hover:bg-gold group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-6">
-                    <service.icon className="w-7 h-7" />
+                <article className="bg-white p-8 border border-gray-100 hover:border-gold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ease-in-out group h-full">
+                  <div className="w-14 h-14 bg-navy/5 text-navy group-hover:bg-gold group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-6 rounded-lg">
+                    <service.icon className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-navy mb-4">{service.title}</h3>
-                  <p className="text-gray-600">{service.desc}</p>
-                </div>
+                  <p className="text-slate-600 leading-relaxed">{service.desc}</p>
+                </article>
               </RevealOnScroll>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* STATS SECTION */}
-      <section className="py-20 bg-navy text-white">
+      <section className="py-16 md:py-20 bg-navy text-white" aria-label="Statistik Perusahaan">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -129,12 +129,12 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white" aria-labelledby="cta-heading">
         <div className="container mx-auto px-4">
           <RevealOnScroll>
-            <div className="bg-gray-50 border border-gray-200 p-12 md:p-20 text-center max-w-5xl mx-auto">
-              <h2 className="font-heading text-4xl font-bold text-navy mb-6">Siap Membangun Visi Anda?</h2>
-              <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
+            <div className="bg-gray-50 border border-gray-200 p-12 md:p-20 text-center max-w-5xl mx-auto rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h2 id="cta-heading" className="font-heading text-4xl font-bold text-navy mb-6">Siap Membangun Visi Anda?</h2>
+              <p className="text-slate-600 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
                 Konsultasikan kebutuhan proyek Anda dengan tim ahli kami. Kami siap memberikan solusi terbaik yang disesuaikan dengan skala dan tujuan bisnis Anda.
               </p>
               <MagneticButton href="https://wa.me/1234567890" variant="primary" className="text-lg px-8 py-4">
@@ -144,6 +144,6 @@ export default function Home() {
           </RevealOnScroll>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

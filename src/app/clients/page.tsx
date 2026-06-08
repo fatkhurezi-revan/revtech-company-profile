@@ -23,9 +23,9 @@ export default function Clients() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen">
       {/* PAGE HEADER */}
-      <section className="bg-navy text-white py-24 md:py-32">
+      <header className="bg-navy text-white py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">
           <RevealOnScroll>
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">Klien & <span className="text-gold">Mitra</span></h1>
@@ -34,15 +34,15 @@ export default function Clients() {
             </p>
           </RevealOnScroll>
         </div>
-      </section>
+      </header>
 
       {/* CLIENT LOGOS */}
-      <section className="py-24 bg-white border-b border-gray-100">
+      <section className="py-16 md:py-24 bg-white border-b border-gray-100" aria-label="Daftar Klien">
         <div className="container mx-auto px-4">
           <RevealOnScroll>
             <div className="text-center mb-16">
               <span className="text-gold font-bold tracking-wider uppercase text-sm mb-4 block">Jaringan Kepercayaan</span>
-              <h2 className="font-heading text-3xl font-bold text-navy">Dipercaya oleh Perusahaan Terkemuka</h2>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-navy">Dipercaya oleh Perusahaan Terkemuka</h2>
             </div>
           </RevealOnScroll>
           <div className="w-full">
@@ -60,26 +60,27 @@ export default function Clients() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50" aria-labelledby="testimonial-heading">
         <div className="container mx-auto px-4">
+          <h2 id="testimonial-heading" className="sr-only">Testimoni Klien</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testi, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="bg-white p-10 border border-gray-100 shadow-sm relative h-full flex flex-col">
-                  <Quote className="w-10 h-10 text-gold/20 absolute top-8 left-8" />
-                  <p className="text-gray-600 italic leading-relaxed mb-8 relative z-10 pt-4 flex-grow">
+                <article className="bg-white p-10 border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out relative h-full flex flex-col group">
+                  <Quote className="w-10 h-10 text-gold/20 absolute top-8 left-8 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                  <p className="text-slate-600 italic leading-relaxed mb-8 relative z-10 pt-4 flex-grow">
                     "{testi.quote}"
                   </p>
-                  <div>
+                  <footer>
                     <div className="font-heading font-bold text-navy text-lg">{testi.author}</div>
                     <div className="text-sm text-gold font-medium">{testi.role}</div>
-                  </div>
-                </div>
+                  </footer>
+                </article>
               </RevealOnScroll>
             ))}
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

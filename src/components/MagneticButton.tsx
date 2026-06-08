@@ -10,9 +10,10 @@ interface MagneticButtonProps {
   href?: string;
   variant?: "primary" | "secondary" | "outline";
   className?: string;
+  ariaLabel?: string;
 }
 
-export function MagneticButton({ children, href, variant = "primary", className }: MagneticButtonProps) {
+export function MagneticButton({ children, href, variant = "primary", className, ariaLabel }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -28,12 +29,12 @@ export function MagneticButton({ children, href, variant = "primary", className 
     setPosition({ x: 0, y: 0 });
   };
 
-  const baseStyles = "inline-flex items-center justify-center px-6 py-3 font-semibold text-sm transition-colors duration-300 relative overflow-hidden group";
+  const baseStyles = "inline-flex items-center justify-center px-6 py-3 font-semibold text-sm transition-all duration-300 ease-in-out relative overflow-hidden group rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5";
   
   const variants = {
-    primary: "bg-navy text-white hover:bg-navy-light",
-    secondary: "bg-gold text-navy hover:bg-gold-light",
-    outline: "border-2 border-navy text-navy hover:text-white"
+    primary: "bg-navy text-white hover:bg-navy-light shadow-navy/20",
+    secondary: "bg-gold text-navy hover:bg-gold-light shadow-gold/30 hover:shadow-gold/40",
+    outline: "border-2 border-navy text-navy hover:text-white shadow-none hover:shadow-navy/20"
   };
 
   const classes = cn(baseStyles, variants[variant], className);
@@ -57,11 +58,11 @@ export function MagneticButton({ children, href, variant = "primary", className 
       className="inline-block"
     >
       {href ? (
-        <Link href={href} className={classes}>
+        <Link href={href} className={classes} aria-label={ariaLabel}>
           {innerContent}
         </Link>
       ) : (
-        <button className={classes}>
+        <button className={classes} aria-label={ariaLabel}>
           {innerContent}
         </button>
       )}
