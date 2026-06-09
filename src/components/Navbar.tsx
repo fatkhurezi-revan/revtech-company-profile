@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "./Button";
+import { siteConfig } from "@/data/config";
 
 export function Navbar() {
   return (
@@ -10,19 +11,17 @@ export function Navbar() {
             R
           </div>
           <div className="flex flex-col justify-center">
-            <span className="font-heading text-xl md:text-2xl font-bold text-navy tracking-tight leading-none mb-1.5">RevTech</span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold leading-none">Template Company Profile</span>
+            <span className="font-heading text-xl md:text-2xl font-bold text-navy tracking-tight leading-none mb-1.5">{siteConfig.name}</span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold leading-none">{siteConfig.subtitle}</span>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600" aria-label="Navigasi Utama">
-          <Link href="/" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Home</Link>
-          <Link href="/about" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">About Us</Link>
-          <Link href="/services" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Services</Link>
-          <Link href="/gallery" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Gallery</Link>
-          <Link href="/clients" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Clients</Link>
+          <Link href="/" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Beranda</Link>
+          <Link href="/about" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Tentang Kami</Link>
+          <Link href="/contact" className="hover:text-gold hover:-translate-y-0.5 transition-all duration-300 ease-in-out">Kontak</Link>
         </nav>
         <div className="hidden md:block">
-          <Button href="https://wa.me/1234567890" variant="primary">Hubungi Kami</Button>
+          <Button href={`https://wa.me/${siteConfig.contact.whatsapp}`} variant="primary">Hubungi Kami</Button>
         </div>
       </div>
     </header>
